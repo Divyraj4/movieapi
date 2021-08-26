@@ -3,6 +3,8 @@ const express=require('express');
 const app=express();
 const path =require('path');
 const request=require('request');
+const dotenv=require('dotenv');
+dotenv.config({path:'./config.env'})
 app.set('views',path.join(__dirname,'views'));
 app.set('view engine','ejs');
 
@@ -22,6 +24,7 @@ app.get('/results',(req,res)=>{
 app.get('/search',(req,res)=>{
       res.render('search');
 });
-app.listen(3000,()=>{
-    console.log('server started at port 3000');
+const port=process.env.PORT;
+app.listen(port,()=>{
+    console.log('server started at port 3510');
 });
